@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria Online</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #e203ff;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Menu à esquerda */
+        .menu {
+            width: 20%;
+            background-color: #db53cb;
+            color: white;
+            padding: 20px;
+        }
+
+        .menu h2 {
+            text-align: center;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu ul li {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .menu ul li a:hover {
+            background-color: #444;
+        }
+
+        /* Área de livros à direita */
+        .books {
+            width: 80%;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .book {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .book img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Carrinho de compras */
+        .cart {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .cart ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart ul li {
+            padding: 5px;
+        }
+
+        .cart p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Livraria Online
+    </header>
+
+    <div class="container">
+        <!-- Menu à esquerda -->
+        <aside class="menu">
+            <h2>Categorias</h2>
+            <ul>
+                <li><a href="#">Romance</a></li>
+                <li><a href="#">Ficção</a></li>
+                <li><a href="#">Suspense</a></li>
+                <li><a href="#">Autoajuda</a></li>
+                <li><a href="#">Fantasia</a></li>
+                <li><a href="#">Biografias</a></li>
+            </ul>
+        </aside>
+
+        <!-- Área de livros à direita -->
+        <main class="books">
+            <h2>Livros Disponíveis</h2>
+            <div class="book-grid">
+                <div class="book">
+                    <img src="../nao era pra ser.png" alt="Livro 1">
+                    <h3>Não Era Pra Ser</h3>
+                    <p>Autora: Dayellenn</p>
+                    <p>R$ 39,90</p>
+                    <button onclick="addToCart('Não Era Pra Ser', 39.90)">Comprar</button>
+                </div>
+
+                <div class="book">
+                    <img src="hipotese do amor.jpg" alt="Livro 2">
+                    <h3>hipotese do amor</h3>
+                    <p>Autora:ali h</p>
+                    <p>R$ 49,90</p>
+                    <button onclick="addToCart('O Destino em Nossas Mãos', 49.90)">Comprar</button>
+                </div>
+
+                <div class="book">
+                    <img src="../meu site/imagens/aqmor teoricamente.jpg" alt="Livro 3">
+                    <h3>Amor teoricamente</h3>
+                    <p>Autora:Ali h</p>
+                    <p>R$ 45,00</p>
+                    <button onclick="addToCart('Segredos do Tempo', 45.00)">Comprar</button>
+                </div>
+
+                <div class="book">
+                    <img src="../meu site/imagens/a  razao do amor.jpg" alt="Livro 4">
+                    <h3>A Razao do Amor</h3>
+                    <p>Autora:ali h</p>
+                    <p>R$ 55,00</p>
+                    <button onclick="addToCart('O Último Adeus', 55.00)">Comprar</button>
+                </div>
+
+                <div class="book">
+                    <img src="../meu site/imagens/abaixo de zero.jpg" alt="Livro 5">
+                    <h3>Abaixo de zero</h3>
+                    <p>Autora:Ali h</p>
+                    <p>R$ 42,90</p>
+                    <button onclick="addToCart('Além do Horizonte', 42.90)">Comprar</button>
+                </div>
+
+                <div class="book">
+                    <img src="../meu site/imagens/presa com voce.jpg" alt="Livro 6">
+                    <h3>presa com voce</h3>
+                    <p>Ali h</p>
+                    <p>R$ 38,00</p>
+                    <button onclick="addToCart('O Mistério da Lua', 38.00)">Comprar</button>
+                </div>
+
+                <div class="book">
+                    <img src="../meu site/imagens/sob o mesmo teto.jpg" alt="Livro 7">
+                    <h3>sob o mesmo teto</h3>
+                    <p> Autora: ali h</p>
+                    <p>R$ 47,50</p>
+                    <button onclick="addToCart('Vidas Cruzadas', 47.50)">Comprar</button>
+                </div>
+
+                <div class="book">
+                    <img src="../meu site/imagens/nao e amor.jpg" alt="Livro 8">
+                    <h3>nao e amor</h3>
+                    <p>Autor: ali h</p>
+                    <p>R$ 50,00</p>
+                    <button onclick="addToCart('O Caminho das Estrelas', 50.00)">Comprar</button>
+                </div>
+            </div>
+
+            <!-- Carrinho de compras -->
+            <section class="cart">
+                <h2>Carrinho de Compras</h2>
+                <ul id="cart-items"></ul>
+                <p>Total: R$ <span id="total-price">0.00</span></p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(bookName, price) {
+            cart.push({ name: bookName, price: price });
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById("cart-items");
+            const totalPrice = document.getElementById("total-price");
+
+            cartItems.innerHTML = "";
+            cart.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - R$ ${item.price.toFixed(2)}`;
+                cartItems.appendChild(li);
+            });
+
+            totalPrice.textContent = total.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
